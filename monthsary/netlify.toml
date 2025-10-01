@@ -1,0 +1,17 @@
+[build]
+  publish = "/"
+  command = ""
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  framework = "html"
+  targetPort = 8000
+  command = "python -m http.server 8000"
+
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_VERSION = "8"

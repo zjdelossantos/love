@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .landing-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+        }
+        
+        .landing-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .landing-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .landing-message {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .enter-button {
+            background: white;
+            color: #ff6b6b;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .enter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-page">
+        <div class="landing-content">
+            <h1 class="landing-title">Happy Monthsary, My Love <span class="heart-beat">❤️</span></h1>
+            <p class="landing-message">
+                Every moment with you is a beautiful chapter in our love story.<br>
+                Today, I want to celebrate us and all the love we share.
+            </p>
+            <a href="index.html" class="enter-button">Open My Heart's Message</a>
+        </div>
+    </div>
+    
+    <script>
+        // Add a simple animation effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.querySelector('.landing-content');
+            setTimeout(() => {
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
