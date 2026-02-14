@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Card</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Dancing+Script:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.4)); }
+      50% { filter: drop-shadow(0 0 25px rgba(244, 63, 94, 0.8)); }
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pop-in {
+      0% { transform: scale(0) translateY(100px); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes confetti-fall {
+      0% { opacity: 1; transform: translateY(-10px) rotateZ(0deg); }
+      100% { opacity: 0; transform: translateY(100vh) rotateZ(360deg); }
+    }
+    @keyframes heart-beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .floating-heart {
+      animation: float 3s ease-in-out infinite;
+    }
+    .pulse-heart {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    .fade-in {
+      animation: fade-in-up 1s ease-out forwards;
+    }
+    .pop-in {
+      animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .confetti {
+      animation: confetti-fall 2s ease-in forwards;
+      position: fixed;
+      pointer-events: none;
+    }
+    .heart-beat {
+      animation: heart-beat 0.6s ease-in-out;
+    }
+    
+    .envelope {
+      background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 50%, #ec4899 100%);
+      border: 3px solid #db2777;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .envelope:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(236, 72, 153, 0.4);
+    }
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 50%;
+      background: linear-gradient(135deg, #fda4af 0%, #f9a8d4 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-bottom: 2px solid #db2777;
+    }
+    
+    .photo-frame {
+      background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+      border: 4px solid #f472b6;
+      transition: all 0.3s ease;
+    }
+    .photo-frame:hover {
+      border-color: #f472b6;
+      transform: scale(1.02);
+    }
+    
+    .card-bg {
+      background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 30%, #fecdd3 60%, #fda4af 100%);
+    }
+    
+    .message-box {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    .button-yes {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+      transition: all 0.3s ease;
+    }
+    .button-yes:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+    }
+
+    .button-of-course {
+      background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 100%);
+      transition: all 0.3s ease;
+    }
+    .button-of-course:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(244, 114, 182, 0.4);
+    }
+
+    .celebration-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .celebration-card {
+      animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 640px) {
+      .celebration-card {
+        max-height: 85vh;
+        margin: 0 1rem;
+      }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full m-0 p-0 overflow-auto">
+  <div id="card-wrapper" class="w-full min-h-full card-bg relative overflow-hidden"><!-- Floating decorative hearts -->
+   <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <svg class="absolute top-[5%] left-[5%] w-8 h-8 text-rose-300 floating-heart opacity-60" style="animation-delay: 0s;" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+    <svg class="absolute top-[15%] right-[10%] w-6 h-6 text-pink-400 floating-heart opacity-50" style="animation-delay: 0.5s;" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+    <svg class="absolute bottom-[20%] right-[5%] w-7 h-7 text-pink-300 floating-heart opacity-55" style="animation-delay: 1.5s;" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+   </div><!-- View 1: Envelope -->
+   <div id="envelope-view" class="relative z-10 flex flex-col items-center justify-center min-h-full px-4 py-8">
+    <div class="fade-in text-center mb-8 sm:mb-12">
+     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-rose-600 mb-2" style="font-family: 'Playfair Display', serif;">You have a</h1>
+     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-rose-600" style="font-family: 'Playfair Display', serif;">Special Message</h1>
+    </div>
+    <div class="fade-in mb-8" style="animation-delay: 0.3s;">
+     <div id="envelope-button" class="envelope w-64 h-44 sm:w-80 sm:h-56 md:w-96 md:h-72 rounded-2xl shadow-2xl flex items-center justify-center relative" onclick="openEnvelope()">
+      <div class="text-center z-10">
+       <svg class="w-12 sm:w-16 text-white mx-auto mb-3 sm:mb-4 pulse-heart" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+       </svg>
+       <p class="text-white text-lg sm:text-xl font-semibold" style="font-family: 'Dancing Script', cursive;">Click to Open</p>
+      </div>
+     </div>
+    </div>
+    <div class="fade-in text-center" style="animation-delay: 0.6s;">
+     <p class="text-rose-400 text-base sm:text-lg" style="font-family: 'Dancing Script', cursive;">✨ A special moment awaits... ✨</p>
+    </div>
+   </div><!-- View 2: Gallery & Message -->
+   <div id="gallery-view" class="relative z-10 hidden flex flex-col items-center justify-start py-6 sm:py-8 px-4 min-h-full">
+    <div class="fade-in text-center mb-4 sm:mb-6">
+     <p class="text-rose-400 text-base sm:text-lg mb-1" style="font-family: 'Dancing Script', cursive;">To my dearest</p>
+     <h1 id="recipient-name" class="text-3xl sm:text-4xl md:text-5xl font-bold text-rose-600" style="font-family: 'Playfair Display', serif;">My Love</h1>
+    </div><!-- Photo gallery -->
+    <div class="fade-in w-full max-w-4xl mb-6 sm:mb-8" style="animation-delay: 0.3s;">
+     <div class="flex flex-wrap justify-center gap-3 sm:gap-4"><!-- Photo 1 -->
+      <div class="photo-frame w-32 h-32 sm:w-40 sm:h-40 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden" id="photo-1"><img id="img-1" class="w-full h-full object-cover" src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1771047359/love_m4zl1g.jpg" alt="Memory" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#f9a8d4';">
+      </div><!-- Photo 2 -->
+      <div class="photo-frame w-32 h-32 sm:w-40 sm:h-40 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden" id="photo-2"><img id="img-2" class="w-full h-full object-cover" src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1771047359/love4_g2zybb.jpg" alt="Memory" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#f9a8d4';">
+      </div><!-- Photo 3 -->
+      <div class="photo-frame w-32 h-32 sm:w-40 sm:h-40 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden" id="photo-3"><img id="img-3" class="w-full h-full object-cover" src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1771047359/love3_tedzqv.jpg" alt="Memory" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#f9a8d4';">
+      </div><!-- Photo 4 -->
+      <div class="photo-frame w-32 h-32 sm:w-40 sm:h-40 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden" id="photo-4"><img id="img-4" class="w-full h-full object-cover" src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1771047359/lov2_a68o50.jpg" alt="Memory" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#f9a8d4';">
+      </div>
+     </div>
+    </div><!-- Message box -->
+    <div class="fade-in w-full max-w-lg mb-6 sm:mb-8" style="animation-delay: 0.5s;">
+     <div class="message-box rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg border border-pink-200">
+      <div class="flex justify-center mb-3 sm:mb-4">
+       <svg class="w-6 h-6 sm:w-8 sm:h-8 text-rose-400" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+       </svg>
+      </div>
+      <p id="main-message" class="text-center text-rose-700 text-base sm:text-lg md:text-xl leading-relaxed" style="font-family: 'Playfair Display', serif;">My love, you complete me. I love you more than this world, and you truly deserve to be loved forever. 💕</p>
+     </div>
+    </div><!-- Continue button --> <button onclick="showProposal()" class="fade-in px-6 sm:px-8 py-2 sm:py-3 bg-rose-500 text-white rounded-full font-semibold hover:bg-rose-600 transition mb-6 sm:mb-8 text-sm sm:text-base" style="animation-delay: 0.7s;"> Continue 💌 </button>
+   </div><!-- View 3: Proposal -->
+   <div id="proposal-view" class="relative z-10 hidden flex flex-col items-center justify-center min-h-full px-4 py-8">
+    <div class="fade-in text-center">
+     <svg class="w-16 sm:w-20 h-16 sm:h-20 text-rose-500 mx-auto mb-6 sm:mb-8 pulse-heart" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+     <div class="bg-white bg-opacity-85 rounded-3xl p-6 sm:p-8 md:p-10 mb-8 sm:mb-10 border-2 border-pink-300 shadow-xl max-w-md">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-rose-600 mb-4 sm:mb-6" style="font-family: 'Playfair Display', serif;">Will you be my</h1>
+      <p class="text-4xl sm:text-5xl md:text-6xl font-bold text-rose-500 mb-4 sm:mb-6" style="font-family: 'Dancing Script', cursive;">Valentine?</p>
+      <div class="text-3xl sm:text-4xl mb-4">
+       💝 💖 💝
+      </div>
+      <p id="sender-signature" class="text-rose-500 text-base sm:text-lg" style="font-family: 'Dancing Script', cursive;">With all my love,<br><span class="text-lg sm:text-xl font-semibold">Your Admirer</span></p>
+     </div>
+     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"><button onclick="handleYes()" class="button-yes px-8 sm:px-10 py-3 sm:py-4 text-white rounded-full font-bold text-lg sm:text-xl shadow-lg"> ❤️ Yes! </button> <button onclick="handleOfCourse()" class="button-of-course px-8 sm:px-10 py-3 sm:py-4 text-white rounded-full font-bold text-lg sm:text-xl shadow-lg"> Of Course! 💕 </button>
+     </div>
+    </div>
+   </div>
+  </div><!-- Celebration Modal -->
+  <div id="celebration-modal" class="hidden celebration-overlay" onclick="closeCelebration(event)">
+   <div class="celebration-card bg-white rounded-3xl p-6 sm:p-8 md:p-12 text-center shadow-2xl w-full max-w-lg" onclick="event.stopPropagation()">
+    <div class="flex justify-center mb-4 sm:mb-6">
+     <svg class="w-16 sm:w-20 h-16 sm:h-20 text-rose-500 heart-beat" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-rose-600 mb-4 sm:mb-6" style="font-family: 'Playfair Display', serif;">🎉 YEHEY! 🎉</h2>
+    <p class="text-xl sm:text-2xl md:text-3xl text-rose-500 font-bold mb-6 sm:mb-8" style="font-family: 'Dancing Script', cursive;">I love you so much mahal ko 💕</p>
+    <p class="text-lg sm:text-xl text-rose-600 font-semibold mb-6 sm:mb-8" style="font-family: 'Playfair Display', serif;">Happy Heart's Day! ❤️</p>
+    <div class="bg-pink-50 rounded-2xl p-5 sm:p-6 mb-8 border-2 border-pink-200">
+     <p class="text-xs sm:text-sm leading-relaxed text-rose-700 italic" style="font-family: 'Playfair Display', serif;">"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres. Love never fails."</p>
+     <p class="text-xs sm:text-sm text-rose-600 font-semibold mt-4">— 1 Corinthians 13:4-8</p>
+    </div><button onclick="closeCelebration()" class="px-8 sm:px-10 py-3 sm:py-4 bg-rose-500 text-white rounded-full font-bold text-base sm:text-lg hover:bg-rose-600 transition"> Close 💌 </button>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      recipient_name: "My Love",
+      main_message: "My love, you complete me. I love you more than this world, and you truly deserve to be loved forever. 💕",
+      sender_name: "Your Admirer"
+    };
+
+    function openEnvelope() {
+      document.getElementById('envelope-view').classList.add('hidden');
+      document.getElementById('gallery-view').classList.remove('hidden');
+    }
+
+    function showProposal() {
+      document.getElementById('gallery-view').classList.add('hidden');
+      document.getElementById('proposal-view').classList.remove('hidden');
+      createConfetti();
+    }
+
+    function handleYes() {
+      showCelebration();
+    }
+
+    function handleOfCourse() {
+      showCelebration();
+    }
+
+    function showCelebration() {
+      createBigConfetti();
+      document.getElementById('celebration-modal').classList.remove('hidden');
+    }
+
+    function closeCelebration(event) {
+      if (event && event.target !== event.currentTarget) return;
+      document.getElementById('celebration-modal').classList.add('hidden');
+    }
+
+    function createConfetti() {
+      const colors = ['#f472b6', '#ec4899', '#db2777', '#fda4af', '#f9a8d4'];
+      for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = Math.random() * 8 + 4 + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.borderRadius = '50%';
+        confetti.style.animationDelay = Math.random() * 0.3 + 's';
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 2300);
+      }
+    }
+
+    function createBigConfetti() {
+      const colors = ['#f472b6', '#ec4899', '#db2777', '#fda4af', '#f9a8d4'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = Math.random() * 12 + 6 + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.borderRadius = '50%';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 2300);
+      }
+    }
+
+    async function onConfigChange(config) {
+      const recipientEl = document.getElementById('recipient-name');
+      const messageEl = document.getElementById('main-message');
+      const senderEl = document.getElementById('sender-signature');
+
+      if (recipientEl) {
+        recipientEl.textContent = config.recipient_name || defaultConfig.recipient_name;
+      }
+      if (messageEl) {
+        messageEl.textContent = config.main_message || defaultConfig.main_message;
+      }
+      if (senderEl) {
+        senderEl.innerHTML = `With all my love,<br><span class="text-lg sm:text-xl font-semibold">${config.sender_name || defaultConfig.sender_name}</span>`;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["recipient_name", config.recipient_name || defaultConfig.recipient_name],
+        ["main_message", config.main_message || defaultConfig.main_message],
+        ["sender_name", config.sender_name || defaultConfig.sender_name]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cda37c4f0f44553',t:'MTc3MTA0NzQ5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
