@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keziah Manansala Tangco — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-leaf">🌿</span>
+      <span class="logo-text">Ke<em>ziah</em></span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"       class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#about"      class="nav-link" data-section="about">About Me</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#skills"     class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#education"  class="nav-link" data-section="education">Education</a></li>
+      <li><a href="#contact"    class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section class="section" id="home">
+    <div class="home-bg-circle c1"></div>
+    <div class="home-bg-circle c2"></div>
+    <div class="home-container">
+      <div class="home-text">
+        <p class="home-greeting">Hello, I'm</p>
+        <h1 class="home-name">Keziah<br/>Manansala<br/><em>Tangco</em></h1>
+        <p class="home-role"><span class="typed-text" id="typedText"></span><span class="cursor">|</span></p>
+        <p class="home-bio">BS Business Administration graduate passionate about management, operations, and organizational leadership — ready to contribute and grow.</p>
+        <div class="home-cta">
+          <a href="#about"   class="btn btn-primary"><i class="fas fa-user"></i> About Me</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Hire Me</a>
+        </div>
+        <div class="home-social">
+          <a href="mailto:tangcokeziah@gmail.com" class="social-dot" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/keziah.tangco"  target="_blank" class="social-dot" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/kishakyut/" target="_blank" class="social-dot" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="home-image-wrap">
+        <div class="image-blob">
+          <div class="blob-ring ring1"></div>
+          <div class="blob-ring ring2"></div>
+          <img
+            src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1777013898/c2defe84-e2f7-4686-9dc2-66314156a235_ghj3cs.jpg"
+            alt="Keziah Manansala Tangco"
+            class="profile-img"
+          />
+          <div class="leaf-deco leaf-a">🌿</div>
+          <div class="leaf-deco leaf-b">🍃</div>
+        </div>
+        <div class="stat-card card-exp">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Yrs. Experience</span>
+        </div>
+        <div class="stat-card card-proj">
+          <span class="stat-num">BSBA</span>
+          <span class="stat-label">Grad · 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="section" id="about">
+    <div class="section-header reveal">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">About <em>Me</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-col reveal">
+        <div class="about-img-wrap">
+          <img
+            src="https://res.cloudinary.com/dpxfbom0j/image/upload/v1777014422/5d89d719-7bda-46e1-9fcc-26ec21ff0082_jg6yo0.jpg"
+            alt="Keziah Tangco"
+            class="about-img"
+          />
+          <div class="about-badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>BSBA · Operations Mgmt.</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content-col reveal">
+        <h3 class="about-subhead">Professional Summary</h3>
+        <p class="about-intro"><strong>Bachelor of Science in Business Administration</strong> graduate with a strong interest in management, operations, and organizational leadership, seeking opportunities to apply and further develop skills while contributing to the success and growth of the organization.</p>
+        <p class="about-body">Based in Pandi, Bulacan, I bring hands-on experience from banking operations at Landbank of the Philippines, freelance tutoring, event hosting, and student leadership. I thrive in collaborative environments and am driven by a commitment to excellence and public service.</p>
+        <div class="about-info-grid">
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div><span class="info-label">Location</span><span class="info-value">Pandi, Bulacan PH</span></div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div><span class="info-label">Phone</span><span class="info-value">0976-673-4825</span></div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div><span class="info-label">Email</span><span class="info-value">tangcokeziah@gmail.com</span></div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-briefcase"></i>
+            <div><span class="info-label">Status</span><span class="info-value">Open to Opportunities</span></div>
+          </div>
+        </div>
+        <div class="about-cta-row">
+          <a href="#experience" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Experience</a>
+          <a href="#contact"    class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-header reveal">
+      <span class="section-tag">My Journey</span>
+      <h2 class="section-title">Work <em>Experience</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-university"></i></div>
+        <div class="timeline-card">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">Intern — Banking Operations</h3>
+              <p class="tcard-company"><i class="fas fa-building"></i> Landbank of the Philippines · Sta. Maria, Bulacan</p>
+            </div>
+            <span class="tcard-date">July – Dec 2025</span>
+          </div>
+          <ul class="tcard-list">
+            <li>Supported branch operations by organizing client documents and transaction records.</li>
+            <li>Assisted in the preparation and verification of financial forms and client data.</li>
+            <li>Participated in field activities such as ATM card distribution at government offices.</li>
+            <li>Enhanced understanding of banking procedures, customer relations, and operational efficiency.</li>
+          </ul>
+          <span class="tcard-badge">Internship</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="timeline-card">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">Freelance Tutor</h3>
+              <p class="tcard-company"><i class="fas fa-laptop"></i> Native Camp (Online)</p>
+            </div>
+            <span class="tcard-date">July 2024 – Jan 2025</span>
+          </div>
+          <p class="tcard-desc">Provided online English tutoring sessions through Native Camp, helping students improve communication skills and academic performance in an interactive virtual setting.</p>
+          <span class="tcard-badge">Freelance</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-home"></i></div>
+        <div class="timeline-card">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">Home Tutoring Service</h3>
+              <p class="tcard-company"><i class="fas fa-map-pin"></i> Private · Local</p>
+            </div>
+            <span class="tcard-date">Jan – Mar 2025</span>
+          </div>
+          <p class="tcard-desc">Delivered personalized one-on-one tutoring sessions at students' homes, tailoring lessons to individual learning needs and academic goals.</p>
+          <span class="tcard-badge">Freelance</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-microphone"></i></div>
+        <div class="timeline-card">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">Event Host</h3>
+              <p class="tcard-company"><i class="fas fa-star"></i> Event Hosting</p>
+            </div>
+            <span class="tcard-date">January 2025</span>
+          </div>
+          <p class="tcard-desc">Hosted events with professionalism and confidence, managing program flow and engaging audiences effectively as emcee.</p>
+          <span class="tcard-badge">Freelance</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot leader"><i class="fas fa-crown"></i></div>
+        <div class="timeline-card leadership">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">President — Business Administration Department</h3>
+              <p class="tcard-company"><i class="fas fa-school"></i> College of Mary Immaculate Inc.</p>
+            </div>
+            <span class="tcard-date">2025 – 2026</span>
+          </div>
+          <p class="tcard-desc">Led the Business Administration student body, spearheading organizational initiatives, representing students in institutional affairs, and fostering academic excellence across the department.</p>
+          <span class="tcard-badge badge-leader">Leadership</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot leader"><i class="fas fa-crown"></i></div>
+        <div class="timeline-card leadership">
+          <div class="tcard-header">
+            <div>
+              <h3 class="tcard-title">Department President — Joaquinians Integrity Crusaders</h3>
+              <p class="tcard-company"><i class="fas fa-school"></i> Nick M. Joaquin Senior High School</p>
+            </div>
+            <span class="tcard-date">2022</span>
+          </div>
+          <p class="tcard-desc">Served as department president advocating for integrity, student welfare, and academic growth within the school community.</p>
+          <span class="tcard-badge badge-leader">Leadership</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="section-cta reveal">
+      <a href="#skills" class="btn btn-primary"><i class="fas fa-star"></i> View My Skills</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-header reveal">
+      <span class="section-tag">What I Bring</span>
+      <h2 class="section-title">My <em>Skills</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-wrapper">
+      <div class="skills-col reveal">
+        <h3 class="skills-group-title"><i class="fas fa-briefcase"></i> Professional Skills</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Team Leadership &amp; Supervision</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Business Operations Management</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Data Analysis &amp; Interpretation</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Written &amp; Verbal Communication</span><span>92%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>MS Office Suite (Word, Excel, PPT)</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skills-col reveal">
+        <h3 class="skills-group-title"><i class="fas fa-seedling"></i> Core Competencies</h3>
+        <div class="competency-grid">
+          <div class="competency-card"><i class="fas fa-users"></i><span>Team Leadership</span></div>
+          <div class="competency-card"><i class="fas fa-puzzle-piece"></i><span>Problem Solving</span></div>
+          <div class="competency-card"><i class="fas fa-eye"></i><span>Attention to Detail</span></div>
+          <div class="competency-card"><i class="fas fa-handshake"></i><span>Team Collaboration</span></div>
+          <div class="competency-card"><i class="fas fa-fire"></i><span>Hardworking</span></div>
+          <div class="competency-card"><i class="fas fa-microphone"></i><span>Public Speaking</span></div>
+          <div class="competency-card"><i class="fas fa-chart-line"></i><span>Operations Mgmt.</span></div>
+          <div class="competency-card"><i class="fas fa-laptop"></i><span>Computer Apps</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-cta reveal">
+      <a href="#education" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> View Education</a>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTIFICATIONS -->
+  <section class="section" id="education">
+    <div class="section-header reveal">
+      <span class="section-tag">Academic Background</span>
+      <h2 class="section-title">Education &amp; <em>Certifications</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="edu-grid reveal">
+      <div class="edu-col">
+        <h3 class="edu-col-title"><i class="fas fa-university"></i> Academic History</h3>
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-details">
+            <h4 class="edu-degree">Bachelor of Science in Business Administration</h4>
+            <p class="edu-major">Major in Operation Management</p>
+            <p class="edu-school"><i class="fas fa-school"></i> College of Mary Immaculate</p>
+            <span class="edu-date">June 2022 – March 2026</span>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-book-open"></i></div>
+          <div class="edu-details">
+            <h4 class="edu-degree">Humanities and Social Science</h4>
+            <p class="edu-major">Senior High School</p>
+            <p class="edu-school"><i class="fas fa-school"></i> Nick M. Joaquin Senior High School</p>
+            <span class="edu-date">August 2020 – June 2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-col">
+        <h3 class="edu-col-title"><i class="fas fa-award"></i> Awards &amp; Honors</h3>
+        <div class="award-card">
+          <div class="award-icon"><i class="fas fa-trophy"></i></div>
+          <div class="award-details">
+            <h4 class="award-name">Joy of Public Service Award</h4>
+            <p class="award-by">Mayor Joy Belmonte Awardee</p>
+            <p class="award-place"><i class="fas fa-map-marker-alt"></i> Quezon City, NCR</p>
+            <span class="edu-date">2022</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-icon gold"><i class="fas fa-medal"></i></div>
+          <div class="award-details">
+            <h4 class="award-name">High Honor</h4>
+            <p class="award-by">Academic Excellence Recognition</p>
+            <p class="award-place"><i class="fas fa-school"></i> Nick M. Joaquin SHS · Quezon City</p>
+            <span class="edu-date">2022</span>
+          </div>
+        </div>
+        <div class="ref-note">
+          <i class="fas fa-id-card-alt"></i>
+          <span>Professional references available upon request.</span>
+        </div>
+      </div>
+    </div>
+    <div class="section-cta reveal">
+      <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-header reveal">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Contact <em>Me</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <p class="contact-intro">Whether it's a job opportunity, collaboration, or just a friendly message — I'd love to hear from you. Let's connect!</p>
+        <div class="contact-cards">
+          <a href="mailto:tangcokeziah@gmail.com" class="contact-card">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-details">
+              <span class="contact-type">Email</span>
+              <span class="contact-value">tangcokeziah@gmail.com</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://www.facebook.com/keziah.tangco" target="_blank" class="contact-card">
+            <div class="contact-icon fb"><i class="fab fa-facebook-f"></i></div>
+            <div class="contact-details">
+              <span class="contact-type">Facebook</span>
+              <span class="contact-value">Keziah Tangco</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://www.instagram.com/kishakyut/ target="_blank" class="contact-card">
+            <div class="contact-icon ig"><i class="fab fa-instagram"></i></div>
+            <div class="contact-details">
+              <span class="contact-type">Instagram</span>
+              <span class="contact-value">@keziah.tangco</span>
+            </div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <div class="contact-card no-link">
+            <div class="contact-icon ph"><i class="fas fa-phone"></i></div>
+            <div class="contact-details">
+              <span class="contact-type">Phone</span>
+              <span class="contact-value">0976-673-4825</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3 class="form-heading">Drop a Message</h3>
+        <div id="formSuccess" class="form-success hidden">
+          <i class="fas fa-check-circle"></i>
+          <p>Message sent! I'll get back to you soon. 🌿</p>
+        </div>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Juan" />
+              <span class="field-error" id="fnameErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="dela Cruz" />
+              <span class="field-error" id="lnameErr"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="juan@example.com" />
+            <span class="field-error" id="emailErr"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Job Inquiry / Collaboration" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Hi Keziah, I'd like to connect with you about..."></textarea>
+            <span class="field-error" id="msgErr"></span>
+          </div>
+          <button class="btn btn-primary btn-full" id="sendBtn" onclick="sendMessage()">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="footer-logo">🌿 Keziah M. Tangco</span>
+      <p class="footer-copy">© 2026 Keziah Manansala Tangco · Pandi, Bulacan PH</p>
+      <div class="footer-social">
+        <a href="mailto:tangcokeziah@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/keziah.tangco"  target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/kishakyut/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
